@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS+ Cloudex Software Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .content {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+        .features {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .features h3 {
+            color: #333;
+        }
+        .features ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .features li {
+            margin: 5px 0;
+        }
+        .form-container {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .form-container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .form-container input, .form-container textarea, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Cloudex Software Services (CSS+)</h1>
+    </header>
+    
+    <div class="content">
+        <h2>About CSS+</h2>
+        <p>
+            Cloudex Software Services (CSS+) is your one-stop platform for building apps, websites, and games effortlessly.
+            With our innovative approach, you can bring your ideas to life without any coding knowledge. Just fill out a form,
+            and we will deliver your project within 15 days. Choose from our free plan with CSS branding or our premium plan for only $1, which removes all branding.
+        </p>
+    </div>
+
+    <div class="features">
+        <h3>Key Features of CSS+</h3>
+        <ul>
+            <li>Build custom apps, websites, or games by simply filling a form.</li>
+            <li>Free plan includes CSS branding; premium plan removes branding for just $1.</li>
+            <li>Projects are delivered within 15 days via email.</li>
+            <li>User-friendly form design for a seamless experience.</li>
+            <li>All project requests are handled by our expert team.</li>
+        </ul>
+    </div>
+
+    <div class="form-container">
+        <h1>Request Your Project</h1>
+        <form id="projectForm" onsubmit="sendEmail(); return false;">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email ID</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="projectName">App/Website/Game Name</label>
+            <input type="text" id="projectName" name="projectName" placeholder="Enter project name" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="5" placeholder="Describe your project" required></textarea>
+
+            <label for="plan">Choose Plan</label>
+            <select id="plan" name="plan" required>
+                <option value="CSS+ Free Plan">CSS+ Free Plan (Includes branding)</option>
+                <option value="CSS+ Premium Plan">CSS+ Premium Plan ($1, No branding)</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p class="thank-you-message" id="thankYouMessage">
+            Thanks for choosing CSS Cloudex Software Services! Your app, website, or game will be delivered to you in 15 days. Stay notified on Gmail.
+        </p>
+    </div>
+
+    <script>
+        function sendEmail() {
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const projectName = document.getElementById("projectName").value;
+            const description = document.getElementById("description").value;
+            const plan = document.getElementById("plan").value;
+
+            // Create mailto link
+            const mailtoLink = `mailto:cloudexservices@gmail.com?subject=New Project Request from ${name}&body=
+                Name: ${name}%0D%0A
+                Email: ${email}%0D%0A
+                Project Name: ${projectName}%0D%0A
+                Description: ${description}%0D%0A
+                Plan: ${plan}`;
+
+            // Open the mail client
+            window.location.href = mailtoLink;
+
+            // Show thank-you message
+            document.getElementById("thankYouMessage").style.display = "block";
+        }
+    </script>
+
+</body></html>
